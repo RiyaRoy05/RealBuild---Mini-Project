@@ -1,0 +1,64 @@
+{% extends 'contractorbase.html' %}
+{% block content %}
+
+
+<style>
+    #center {
+        margin-left: 300px;
+    }
+
+    img {
+        border-radius: 50%;
+    }
+    th{
+        color: white;
+        background-color:#CE6D06 ;
+    }
+   
+</style>
+
+<center>
+    <h1 style="margin-top: 100px; margin-bottom: 100px;"> Work Requests</h1>
+</center><br><br><br><br>
+{% for d in data %}
+<table class="table"style="width:90%; margin-left:30px">
+    <thead>
+        <tr>
+            <th>NAME</th>
+            <th>ADDRESS</th>
+            <th>CONTACT</th>
+            <th>PLAN</th>
+            <th >VIDEO</th>
+            <th>AREA</th>
+            <th colspan="2">ACTION</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{d.2}}</td>
+            <td>{{d.3}}</td>
+            <td>{{d.4}}</td>
+            <td><a href="../static{{d.5}}"><img src="../static{{d.5}}" height="150px" width="150px"></td></a>
+            <td>
+                <video width="200" height="150" controls>
+                    <source src="../static{{d.1}}" type="video/mp4">
+                </video>
+            </td>
+            <td>{{d.6}}</td>
+           <td><a href="/contractorapprove?workid={{d.0}}"  class="btn btn-style btn-style text-success">Approve</a></td>
+        <td><a href="/contractorreject?workid={{d.0}}"  class="btn btn-style btn-style text-danger">Reject</a></td>
+            
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+<script>
+    var msg="{{msg}}"
+    if(msg!="")
+        alert(msg)
+    </script>
+{% endblock %}
+
+

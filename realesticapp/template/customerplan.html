@@ -1,0 +1,66 @@
+{% extends 'customerbase.html' %}
+{% block content %}
+
+<style>
+    .tablex {
+        width: 80%;
+        margin: 30px auto;
+        box-sizing: border-box;
+    }
+
+    #center {
+        margin-left: 300px;
+    }
+
+    td img {
+        width: 100px;
+
+    }
+
+    td {
+        text-align: center;
+    }
+
+    th {
+        text-align: center;
+        color: white;
+        background-color: #CE6D06;
+    }
+</style>
+<center>
+    <h1 style="margin-top: 100px;"> Quatations </h1>
+</center><br><br><br><br>
+
+<table class="table" style="width:90%; margin-left:30px">
+    <thead>
+        <tr>
+            <th>REQUEST ID</th>
+            <th>ARCHITECT</th>
+            <th>AREA</th>
+            <th>COST</th>
+            <th colspan="4">ESTIMATED COST</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for d in data %}
+            <td>{{d.0}}</td>
+            <td>{{d.1}}</td>
+            <td>{{d.2}}</td>
+            <td>{{d.3}}</td>
+            <td><a class="btn btn-style btn-style text-primary "  href="/customerviewplan?id={{d.6}}">View Plan</a></td>
+            <td><a class="btn btn-style btn-style text-primary "  href="/customerplanupdate?id={{d.5}}&fees={{d.2}}&rid={{d.0}}&status=approved&url=customerviewdesigner&rid={{d.0}}">Approve</a></td>
+            <td><a class="btn btn-style btn-style text-primary " href="/customerplanupdate?id={{d.5}}&status=rejected&url=customerrequirement&rid={{d.0}}">Reject</a></td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+
+
+
+
+{% endblock %}

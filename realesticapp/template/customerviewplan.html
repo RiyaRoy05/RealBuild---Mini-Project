@@ -1,0 +1,22 @@
+{% extends 'customerbase.html' %}
+{% block content %}
+<style>
+th,td{
+    padding: 10px;
+}
+th{
+    background-color: lightseagreen;
+    color: white;
+}
+</style>
+<div style="margin:100px 50px 50px 50px;">
+    <h1 style="margin: 50px;">Plan</h1>
+    
+    <img style="margin-top: 50px;" src="../static{{plan}}" height="650px" width="750px">
+</div>
+<script>
+    var msg="{{msg}}"
+    if(msg!="")
+        alert(msg)
+    </script>
+{% endblock %}

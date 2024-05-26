@@ -1,0 +1,87 @@
+{% extends 'customerbase.html' %}
+{% block content %}
+
+
+<style>
+    #center {
+        margin-left: 300px;
+    }
+</style>
+
+<div class="w3l-contact-info py-5" id="contact">
+    <div class="container py-lg-5 py-md-4">
+        <div class="align-self mt-lg-0 mt-md-5 mt-4">
+            <div class="contact-infos">
+                <div class="single-contact-infos">
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div id="center" class="col-lg-6 form-inner-cont mt-lg-0 mt-sm-5 mt-4">
+                    <h1>ADD ACCOUNT </h1><br><br>
+                    <form method="post" class="signin-form">
+                        {% csrf_token %}
+                        <div class="form-input">
+                            <input type="text" name="cardno"  required placeholder="Card Number">
+                        </div>
+                        <div class="form-input">
+                            <input type="text" name="cvv" maxlength="3" minlength="3" pattern="[0-9]+"
+                                placeholder="cvv " required="">
+                        </div>
+                        <div class="form-input">
+                            Expiry Date <input type="date" name="exp" required placeholder="Expiry Date">
+                        </div>
+                        <div class="form-input">
+                            <input type="text" name="upi" required placeholder="Account Number">
+                        </div>
+                        <div class="text-right">
+                            <button type="submit" name="add" value="add" class="btn btn-style btn-primary">Submit</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<div class="w3l-contact-info py-5" id="contact">
+    <div class="container py-lg-5 py-md-4">
+        <div class="align-self mt-lg-0 mt-md-5 mt-4">
+            <div class="contact-infos">
+                <div class="single-contact-infos">
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div id="center" class="col-lg-6 form-inner-cont mt-lg-0 mt-sm-5 mt-4">
+                    <h1>UPDATE ACCOUNT </h1><br><br>
+               
+                    <form method="post" class="signin-form">
+                        {% csrf_token %}
+                        <div class="form-input">
+                            <input type="text" value="{{data2.4}}"   name="cardno" pattern="[0-9]+" required placeholder="Card Number">
+                        </div>
+                        <div class="form-input">
+                            <input type="text" name="cvv" value="{{data2.5}}"   maxlength="3" minlength="3" pattern="[0-9]+"
+                                placeholder="cvv " required="">
+                        </div>
+                        <div class="form-input">
+                            Expiry Date <input type="date"  value="{{data2.6}}"   name="exp" required placeholder="Expiry Date">
+                        </div>
+                        <div class="form-input">
+                            <input type="text" name="upi"   value="{{data2.2}}"  required placeholder="Account Number">
+                        </div>
+                        <div class="text-right">
+                            <button type="submit" name="update" value="update" class="btn btn-style btn-primary">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var msg = "{{msg}}"
+        if (msg != "")
+            alert(msg)
+    </script>
+    {% endblock %}

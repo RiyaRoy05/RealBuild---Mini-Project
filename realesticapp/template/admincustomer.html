@@ -1,0 +1,34 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+{% load static %}
+
+
+<section class="w3l-features-8" id="products">
+    <!-- /features -->
+    <div class="features py-5">
+        <div class="container py-lg-5 py-md-4 py-2">
+            <h5 class="title-small text-center"></h5>
+            <h3 class="title-big text-center mb-md-5 mb-4">View Customers</h3>
+            
+            <div class="fea-gd-vv text-center row">
+                {% for d in data %}
+                <div class="float-top col-lg-4 col-md-6">
+
+                    <a href=""><img src="../static{{d.4}}" class="img-responsive" alt=""></a>
+                    <div class="float-lt feature-gd">
+                        <h3><a href="">{{d.0}}</a> </h3>
+                        <p>{{d.1}}</p>
+                        <p>{{d.2}}</p>
+                        <p>{{d.3}}</p>
+                        <br>
+                       
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+    </div>
+    <!-- //features -->
+</section>
+{% endblock %}

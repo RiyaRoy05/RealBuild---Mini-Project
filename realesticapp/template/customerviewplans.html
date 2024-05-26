@@ -1,0 +1,126 @@
+{% extends 'customerbase.html' %}
+{% block content %}
+
+<style>
+    
+        .tablex {
+            width: 80%;
+            margin: 30px auto;
+            box-sizing: border-box;
+        }
+    
+        #center {
+            margin-left: 300px;
+        }
+    
+        td img {
+            width: 100px;
+    
+        }
+    
+        td {
+            text-align: center;
+        }
+    
+        th {
+            text-align: center;
+            color: white;
+            background-color: #CE6D06;
+        }
+</style>
+<center>
+    <h1 style="margin-top: 100px;"> Plans </h1>
+</center><br><br><br><br>
+
+<table class="table" style="width:90%; margin-left:30px">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>BEDROOM</th>
+            <th>BATHROOM</th>
+            <th>ATTACHED</th>
+            <th>CARPORCH</th>
+            <th>KITCHEN</th>
+            <th>SITOUT</th>
+            <th>WORKAREA</th>
+            <th>FLOOR</th>
+            <th>AREA(in sqft)</th>
+            <th>DATE</th>
+            <th>OTHERS</th>
+            <th colspan="2">STATUS</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for d in data1 %}
+            <td>{{d.0}}</td>
+            <td>{{d.2}}</td>
+            <td>{{d.3}}</td>
+            <td>{{d.4}}</td>
+            <td>{{d.5}}</td>
+            <td>{{d.6}}</td>
+            <td>{{d.7}}</td>
+            <td>{{d.8}}</td>
+            <td>{{d.9}}</td>
+            <td>{{d.10}}</td>
+            <td>{{d.11}}</td>
+            <td>{{d.12}}</td>
+            <td>{{d.13}}</td>
+
+            <td><a class="btn btn-style btn-style text-primary "href="/customerplan?id={{d.0}}">View Plan</a></td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+
+
+
+
+<center>
+    <h1 style="margin-top: 100px;"> Approved Plans </h1>
+</center><br><br><br><br>
+
+<table class="table" style="width:90%; margin-left:30px">
+    <thead>
+        <tr>
+            <th>REQUEST ID</th>
+            <th>ARCHITECT</th>
+            <th>AREA</th>
+            <th>ESTIMATED COST</th>
+            <th>FEES</th>
+            <th>PLAN</th>
+            <th>ASSIGN</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for d in data12 %}
+            <td>{{d.0}}</td>
+            <td>{{d.1}}</td>
+            <td>{{d.2}}</td>
+            <td>{{d.3}}</td>
+            <td>{{d.7}}</td>
+            <td><img src="../static{{d.6}}"></td>
+            <td><a class="btn btn-style btn-style text-primary " href="/customerviewdesigner?id={{d.0}}">Assign</a></td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

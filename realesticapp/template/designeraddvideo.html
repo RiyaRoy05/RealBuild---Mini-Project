@@ -1,0 +1,47 @@
+{% extends 'designerbase.html' %}
+{% block content %}
+
+
+<style>
+    #center {
+        margin-left: 300px;
+    }
+</style>
+
+<div class="w3l-contact-info py-5" id="contact">
+    <div class="container py-lg-5 py-md-4">
+        <div class="align-self mt-lg-0 mt-md-5 mt-4">
+            <div class="contact-infos">
+                <div class="single-contact-infos">
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div id="center" class="col-lg-6 form-inner-cont mt-lg-0 mt-sm-5 mt-4">
+                    <h1>Add Video</h1><br><br>
+                    <form method="post" class="signin-form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-input">
+                            <input type="file" name="txtFile" required placeholder="">
+                        </div>
+                        <div class="form-input">
+                            <input type="number" name="fees" placeholder="Fees" required="">
+                        </div><br>
+                        <div class="form-input">
+                            <input type="number" name="txtCost" placeholder="Estimated cost" required="">
+                        </div><br>
+
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-style btn-primary">Add</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var msg = "{{msg}}"
+        if (msg != "")
+            alert(msg)
+    </script>
+    {% endblock %}

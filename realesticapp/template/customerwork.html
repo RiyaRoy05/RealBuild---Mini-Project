@@ -1,0 +1,48 @@
+{% extends 'customerbase.html' %}
+{% block content %}
+<style>
+    #center {
+        margin-left: 300px;
+    }
+
+    img {
+        border-radius: 50%;
+    }
+    th{
+        color: white;
+        background-color:#CE6D06 ;
+    }
+   
+</style>
+
+
+
+<center>
+    <h1 style="margin-top: 100px;"> Works</h1>
+</center><br><br><br><br>
+
+<table class="table"style="width:90%; margin-left:30px">
+    <thead>
+        <tr>
+            <th>WORK ID</th>
+            <th>CONTRACTOR</th>
+            <th>AREA</th>
+            <th>STATUS</th>
+            
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for d in data %}
+            <td>{{d.0}}</td>
+            <td>{{d.1}}</td>
+            <td>{{d.2}}</td>
+            <td>{{d.3}}</td>
+        
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

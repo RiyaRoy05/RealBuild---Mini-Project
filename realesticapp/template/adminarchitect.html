@@ -1,0 +1,72 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+{% load static %}
+
+
+<section class="w3l-features-8" id="products">
+    <!-- /features -->
+    <div class="features py-5">
+        <div class="container py-lg-5 py-md-4 py-2">
+            <h5 class="title-small text-center"></h5>
+            <h3 class="title-big text-center mb-md-5 mb-4">Architect Verification</h3>
+            
+            <div class="fea-gd-vv text-center row">
+                {% for d in data %}
+                <div class="float-top col-lg-4 col-md-6">
+
+                    <a href=""><img src="../static{{d.6}}" class="img-responsive" alt=""></a>
+                    <div class="float-lt feature-gd">
+                        <h3><a href="">{{d.0}}</a> </h3>
+                        <p>{{d.1}}</p>
+                        <p>{{d.2}}</p>
+                        <p>{{d.3}}</p>
+                        <br>
+                        <div>
+                            <a href="/adminapproveuser?id={{d.3}}&status=-1&url=/adminarchitect"  class="btn btn-style btn-style mx-2">Reject</a>
+                            
+                            <a href="/adminapproveuser?id={{d.3}}&status=1&url=/adminarchitect" class="btn btn-style btn-primary">Appove</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- //features -->
+</section>
+
+
+
+
+<section class="w3l-features-8" id="products">
+    <!-- /features -->
+    <div class="features py-5">
+        <div class="container py-lg-5 py-md-4 py-2">
+            <h5 class="title-small text-center"></h5>
+            <h3 class="title-big text-center mb-md-5 mb-4"> Approved Architect </h3>
+            
+            <div class="fea-gd-vv text-center row">
+                {% for d in data1 %}
+                <div class="float-top col-lg-4 col-md-6">
+
+                    <div class="float-lt feature-gd">
+                        <a href=""><img src="../static{{d.4}}" class="img-responsive" alt=""></a>
+                        <br>
+                        <h3><a href="">{{d.0}}</a> </h3>
+                        <p>{{d.1}}</p>
+                        <p>{{d.2}}</p>
+                        <p>{{d.3}}</p>
+                        <br>
+                        <div>
+                            
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- //features -->
+</section>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'architectbase.html' %}
+{% block content %}
+
+<style>
+    #center {
+        margin-left: 300px;
+    }
+
+    img {
+        border-radius: 50%;
+    }
+    th{
+        color: white;
+        background-color:#CE6D06 ;
+    }
+   
+</style>
+<center>
+    <h1 style="margin-top: 100px;"> New Request</h1>
+</center><br><br><br><br>
+{% for d in data %}
+<table class="table" style="width:90%; margin-left:30px">
+    <thead>
+        <tr>
+            <th>NAME</th>
+            <th>BEDROOM</th>
+            <th>BATHROOM</th>
+            <th>ATTACHED BATHROOM</th>
+            <th>CARPORCH</th>
+            <th>KITCHEN</th>
+            <th>SIT OUT</th>
+            <th>WORK AREA</th>
+            <th>FLOOR</th>
+            <th>AREA(sqft)</th>
+            <th colspan="2">OTHER REQUIREMENT</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{d.14}}</td>
+            <td>{{d.2}}</td>
+            <td>{{d.3}}</td>
+            <td>{{d.4}}</td>
+            <td>{{d.5}}</td>
+            <td>{{d.6}}</td>
+            <td>{{d.7}}</td>
+            <td>{{d.8}}</td>
+            <td>{{d.9}}</td>
+            <td>{{d.10}}</td>
+            <td>{{d.11}}</td>
+            <td><a class="btn btn-style btn-style text-primary " href="/architectaddplan?id={{d.0}}">Add plan</a></td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}

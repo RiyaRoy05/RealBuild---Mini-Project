@@ -1,0 +1,54 @@
+{% extends 'customerbase.html' %}
+{% block content %}
+<style>
+    #center {
+        margin-left: 300px;
+    }
+
+    img {
+        border-radius: 50%;
+    }
+
+    th {
+        text-align: center;
+        color: white;
+        background-color: #CE6D06;
+    }
+    td {
+        text-align: center;
+    }
+</style>
+<center>
+    <h1 style="margin-top: 100px;"> Design Request</h1>
+</center><br><br><br><br>
+
+<table class="table" style="width:90%; margin-left:30px">
+    <thead>
+        <tr>
+    
+            <th>DESIGNER</th>
+            <th>AREA</th>
+            <th>ESTIMATED COST</th>
+            <th>STATUS</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for d in data %}
+          
+            <td>{{d.1}}</td>
+            <td>{{d.2}}</td>
+            <td>{{d.3}}</td>
+            <td>{{d.5}}</td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+<script>
+    var msg = "{{msg}}"
+    if (msg != "")
+        alert(msg)
+</script>
+{% endblock %}
